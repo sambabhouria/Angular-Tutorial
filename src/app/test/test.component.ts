@@ -30,6 +30,13 @@ import { Component, OnInit } from '@angular/core';
              <input [disabled] = "true"  id={{myId}} type="text" value="Samba" />
              <input [disabled] = "isDesabled"  id={{myId}} type="text" value="Samba" />
              <input bind-disabled = "isDesabled"  id={{myId}} type="text" value="Samba" />
+
+             <h2 class="text-success">Codevolution</h2>
+             <h2 [class]="successClass">Codevolution</h2>
+             <h2 class="text-special" [class]="successClass">Codevolution</h2>
+             <h2 [class.text-danger] ="hasError" >Codevolution</h2>
+
+             <h2 [ngClass]="messageClasses">Message</h2>
             `,
 
 
@@ -37,9 +44,18 @@ import { Component, OnInit } from '@angular/core';
   // we juste have inlien style
   // styleUrls: ['./test.component.css']
   styles:[`
-     div {
+    div {
        color: red;
-     }
+    }
+    .text-success{
+      color: green;
+    }
+    .text-danger{
+      color: red;
+    }
+    .text-special{
+      font-style: italic;
+    }
   `]
 })
 export class TestComponent implements OnInit {
@@ -49,6 +65,14 @@ export class TestComponent implements OnInit {
   public siteUrl = window.location.href;
   public myId = "mytestId";
   public isDesabled = false;
+  public successClass = "text-success";
+  public hasError = false;
+  public isSpecial = true;
+  public messageClasses = {
+    "text-success": !this.hasError,
+    "text-danger": this.hasError,
+    "text-special": this.isSpecial
+  }
 
   constructor() { }
 
