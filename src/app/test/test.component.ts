@@ -50,7 +50,10 @@ import { Component, OnInit } from '@angular/core';
 
              {{greeting}}
 
-             <button (click)="greeting = 'Welcome  Dilallo mamadou samba'">Greet</button>
+             <button (click)="greeting = 'Welcome  Dilallo mamadou samba'">Greet</button><br/><br/>
+
+             <input #myInput type="text"><br/><br/>
+             <button (click)="logMessage(myInput.value)">Log</button>
 
 
 
@@ -116,6 +119,9 @@ export class TestComponent implements OnInit {
 
   onClickConsoleLog(){
     console.log("in the console log")
+  }
+  logMessage(value: string){
+    console.log(value)
   }
 
 }
