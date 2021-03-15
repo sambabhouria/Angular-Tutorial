@@ -16,8 +16,15 @@ import { Component, OnInit } from '@angular/core';
 
   // for multiple html line use this ``
   template: ` <div>
-              Inline template
-            </div>`,
+              <h2>Welcome DIALLO Mamado samba => this is static</h2>
+              <h3>email: {{email}}</h3>
+              <h2>expression calcul : {{2+2}}</h2>
+              <h2> {{ "Welcome " + name}}</h2>
+              <h2> {{name.length}}</h2>
+              <h2> {{name.toUpperCase()}}</h2>
+              <h2> {{greetUser()}}</h2>
+              <h2> {{siteUrl}}</h2>
+             </div>`,
 
   // we can also change the sytyleUrls property
   // we juste have inlien style
@@ -30,9 +37,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
+  public email ='sambabhouria@gmail.com';
+  public name ='DIALLO';
+  public siteUrl = window.location.href;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+  greetUser() {
+    return "Hello " + this.name;
   }
 
 }
