@@ -45,6 +45,15 @@ import { Component, OnInit } from '@angular/core';
 
              <h2 [ngStyle]="titleStyles">Style Binding 3</h2>
 
+             <button (click)="onClickConsoleLog()">Greet</button> <br/><br/>
+             <button (click)="onClick($event)">Greet</button>
+
+             {{greeting}}
+
+             <button (click)="greeting = 'Welcome  Dilallo mamadou samba'">Greet</button>
+
+
+
             `,
 
 
@@ -89,6 +98,7 @@ export class TestComponent implements OnInit {
     fontStyle: "italic"
   }
 
+  public greeting = "";
 
   constructor() { }
 
@@ -96,6 +106,16 @@ export class TestComponent implements OnInit {
   }
   greetUser() {
     return "Hello " + this.name;
+  }
+
+  onClick(event: MouseEvent){
+    console.log(event)
+    this.greeting = 'Welcome to code evution';
+
+  }
+
+  onClickConsoleLog(){
+    console.log("in the console log")
   }
 
 }
