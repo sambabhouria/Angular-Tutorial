@@ -24,7 +24,14 @@ import { Component, OnInit } from '@angular/core';
               <h2> {{name.toUpperCase()}}</h2>
               <h2> {{greetUser()}}</h2>
               <h2> {{siteUrl}}</h2>
-             </div>`,
+             </div>
+             <input [id]="myId" type="text" value="Samba" />
+             <input [disabled] = "false"  id={{myId}} type="text" value="Samba" />
+             <input [disabled] = "true"  id={{myId}} type="text" value="Samba" />
+             <input [disabled] = "isDesabled"  id={{myId}} type="text" value="Samba" />
+             <input bind-disabled = "isDesabled"  id={{myId}} type="text" value="Samba" />
+            `,
+
 
   // we can also change the sytyleUrls property
   // we juste have inlien style
@@ -40,6 +47,8 @@ export class TestComponent implements OnInit {
   public email ='sambabhouria@gmail.com';
   public name ='DIALLO';
   public siteUrl = window.location.href;
+  public myId = "mytestId";
+  public isDesabled = false;
 
   constructor() { }
 
