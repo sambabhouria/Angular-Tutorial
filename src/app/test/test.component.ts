@@ -53,7 +53,10 @@ import { Component, OnInit } from '@angular/core';
              <button (click)="greeting = 'Welcome  Dilallo mamadou samba'">Greet</button><br/><br/>
 
              <input #myInput type="text"><br/><br/>
-             <button (click)="logMessage(myInput.value)">Log</button>
+             <button (click)="logMessage(myInput.value)">Log</button><br/><br/>
+
+             <input [(ngModel)]= "prenom" type="text"><br/><br/>
+             {{prenom}}
 
             `,
 
@@ -77,6 +80,8 @@ import { Component, OnInit } from '@angular/core';
   `]
 })
 export class TestComponent implements OnInit {
+
+  public prenom ='';
 
   public email ='sambabhouria@gmail.com';
   public name ='DIALLO';
