@@ -55,8 +55,6 @@ import { Component, OnInit } from '@angular/core';
              <input #myInput type="text"><br/><br/>
              <button (click)="logMessage(myInput.value)">Log</button>
 
-
-
             `,
 
 
