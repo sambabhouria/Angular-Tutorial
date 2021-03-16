@@ -84,8 +84,12 @@ import { Component, OnInit } from '@angular/core';
             <div *ngSwitchCase="'blue'">You picked blue color</div>
             <div *ngSwitchCase="'green'">You picked green color</div>
             <div *ngSwitchDefault>Pick again</div>
-          </div>
 
+            <div *ngFor="let color of colors; index as i; first as f; last as l">
+              <h2>{{i}} {{f}} {{l}}  {{color}}</h2>
+            </div>
+
+          </div>
             `,
 
 
