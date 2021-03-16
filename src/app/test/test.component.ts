@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input,Output, EventEmitter } from '@angular/core';
+// import * as EventEmitter from 'events';
 
 @Component({
   // there is three way to specify you selector :
@@ -89,6 +90,9 @@ import { Component, OnInit } from '@angular/core';
               <h2>{{i}} {{f}} {{l}}  {{color}}</h2>
             </div>
 
+            <h2>{{ "Hello " +  parent}}</h2>
+
+            <button (click) = "fireEvent()"> send event</button>
           </div>
             `,
 
@@ -113,6 +117,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
+
+   // Component Interaction ==>  @Input from parent component
+  @Input() public parentData ='';
+
+  // if we dont want to name the variable same with the parent data
+  // we use alias
+  @Input('parentData') public parent ='';
+
+  // sending data to the parent compent we use event
+  @Output() public childEvent = new EventEmitter();
 
   //Structural Directives
   public displayName = false;
@@ -163,6 +177,10 @@ export class TestComponent implements OnInit {
   }
   logMessage(value: string){
     console.log(value)
+  }
+
+  fireEvent(){
+   this.childEvent.emit('Hey form the childComponent');
   }
 
 }
