@@ -45,18 +45,38 @@ import { Component, OnInit } from '@angular/core';
 
              <h2 [ngStyle]="titleStyles">Style Binding 3</h2>
 
-             <button (click)="onClickConsoleLog()">Greet</button> <br/><br/>
+             <button (click)="onClickConsoleLog()">Greet</button> <br/>
              <button (click)="onClick($event)">Greet</button>
 
              {{greeting}}
 
-             <button (click)="greeting = 'Welcome  Dilallo mamadou samba'">Greet</button><br/><br/>
+             <button (click)="greeting = 'Welcome  Dilallo mamadou samba'">Greet</button><br/>
 
              <input #myInput type="text"><br/><br/>
-             <button (click)="logMessage(myInput.value)">Log</button><br/><br/>
+             <button (click)="logMessage(myInput.value)">Log</button><br/>
 
              <input [(ngModel)]= "prenom" type="text"><br/><br/>
              {{prenom}}
+
+             <h2 *ngIf="false">
+               Codevolution
+             </h2>
+
+
+            <h2 *ngIf="displayName; else elseBlock">
+              Codevolution
+             </h2>
+            <ng-template #elseBlock>
+             <h2>Hidden block</h2>
+            </ng-template>
+
+            <div *ngIf="displayName; then thenBlock; else elseBlock"></div>
+            <ng-template #thenBlock>
+              <h2>Codevolution</h2>
+            </ng-template>
+            <ng-template #elseBlock>
+              <h2>Hidden</h2>
+            </ng-template>
 
             `,
 
@@ -80,6 +100,12 @@ import { Component, OnInit } from '@angular/core';
   `]
 })
 export class TestComponent implements OnInit {
+
+
+  //Structural Directives
+  public displayName = false;
+  public color = "red";
+  public colors = ["red","blue","green","yellow"]
 
   public prenom ='';
 
